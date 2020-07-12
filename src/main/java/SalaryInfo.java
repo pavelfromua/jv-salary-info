@@ -5,8 +5,8 @@ import java.time.format.DateTimeFormatter;
 public class SalaryInfo {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public String getSalaryInfo(String[] names, String[] data, String dateFrom, String dateTo)
-            throws Exception {
+    public String getSalaryInfo(String[] names, String[] data, String dateFrom,
+                                String dateTo) throws Exception {
         LocalDate dateFromLocal = LocalDate.parse(dateFrom, formatter);
         LocalDate dateToLocal = LocalDate.parse(dateTo, formatter);
 
