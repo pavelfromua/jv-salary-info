@@ -1,6 +1,7 @@
+import exception.IllegalDateParametersException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import exception.*;
 
 public class SalaryInfo {
     /**
@@ -45,7 +46,6 @@ public class SalaryInfo {
 
     public String getSalaryInfo(String[] names, String[] data, String dateFrom, String dateTo)
             throws Exception {
-
         LocalDate dateFromLocal = LocalDate.parse(dateFrom, formatter);
         LocalDate dateToLocal = LocalDate.parse(dateTo, formatter);
 
@@ -69,7 +69,8 @@ public class SalaryInfo {
                 int hoursItem = Integer.parseInt(items[2]);
                 int rateItem = Integer.parseInt(items[3]);
 
-                if (name.equals(nameItem) && ((dateItem.isAfter(dateFromLocal) | dateItem.equals(dateFromLocal))
+                if (name.equals(nameItem) && ((dateItem.isAfter(dateFromLocal)
+                        | dateItem.equals(dateFromLocal))
                         && (dateItem.isBefore(dateToLocal) | dateItem.equals(dateToLocal)))) {
                     salary += hoursItem * rateItem;
                 }
